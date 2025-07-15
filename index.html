@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Stock Predictor with Brain.js</title>
-  <script src="https://unpkg.com/brain.js"></script>
+  <meta charset="UTF-8" />
+  <title>Stock Market Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/brain.js"></script>
 </head>
 <body>
-  <h1>Amazon Stock Price Predictor</h1>
-  <button onclick="trainAndPredict()">Train & Predict</button>
-  <p id="prediction"></p>
-  <canvas id="chart" width="600" height="400"></canvas>
+  <div class="container">
+    <h1>Stock Market Predictor (Brain.js)</h1>
+
+    <div class="controls">
+      <select id="symbol">
+        <option value="AMZN">Amazon (AMZN)</option>
+        <option value="GOOGL">Google (GOOGL)</option>
+        <option value="CRM">Salesforce (CRM)</option>
+        <option value="MSFT">Microsoft (MSFT)</option>
+        <option value="NVDA">Nvidia (NVDA)</option>
+      </select>
+      <input type="date" id="dateInput" />
+      <input type="number" id="priceInput" placeholder="Price ($)" />
+      <button onclick="addEntry()">Add</button>
+      <button onclick="generateSampleData()">Generate Sample</button>
+    </div>
+
+    <div id="dataList" class="data-list"></div>
+
+    <button onclick="trainAndPredict()" class="train-button">Train & Predict</button>
+
+    <div id="predictionResults" class="prediction-results"></div>
+
+    <canvas id="chart" height="400"></canvas>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

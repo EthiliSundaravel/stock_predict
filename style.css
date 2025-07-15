@@ -1,8 +1,54 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+  font-family: sans-serif;
+  background: #f9f9f9;
+  margin: 0;
   padding: 20px;
 }
-canvas {
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.train-button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.data-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 10px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.prediction-results {
+  margin-top: 20px;
+  text-align: left;
 }
