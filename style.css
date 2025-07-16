@@ -105,6 +105,7 @@ button {
 }
 
 .data-list {
+  min-height: 80px;
   max-height: 300px;
   overflow-y: auto;
   margin: 20px auto;
@@ -112,6 +113,7 @@ button {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
 .data-item {
@@ -157,6 +159,7 @@ button {
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   text-align: left;
+  min-height: 60px;
 }
 
 .prediction-results h3 {
@@ -192,6 +195,7 @@ button {
   padding: 20px;
   height: 400px;
   max-height: 400px;
+  display: none; /* Initially hidden */
 }
 
 .chart-container {
@@ -203,6 +207,16 @@ button {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   padding: 20px;
   overflow: hidden;
+}
+
+/* Chart placeholder styling */
+#chart-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 20px;
 }
 
 /* Scrollbar styling */

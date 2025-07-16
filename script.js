@@ -1,6 +1,43 @@
 let stockData = [];
 const net = new brain.NeuralNetwork({ hiddenLayers: [10, 8] });
 
+// Initialize the application when the page loads
+function initializeApp() {
+  updateList();
+  
+  // Set default date to today
+  const today = new Date();
+  const dateInput = document.getElementById("dateInput");
+  if (dateInput) {
+    dateInput.value = today.toISOString().split('T')[0];
+  }
+  
+  // Add initial state for prediction results
+  const predictionResults = document.getElementById("predictionResults");
+  if (predictionResults) {
+    predictionResults.innerHTML = `
+      <div style="
+        text-align: center; 
+        padding: 30px 20px; 
+        color: #666; 
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        border: 2px dashed #ddd;
+      ">
+        🔮 Prediction Results<br>
+        <small style="color: #999; font-size: 14px;">Add data and click "Train & Predict" to see AI predictions</small>
+      </div>
+    `;
+  }
+  
+  // Add chart placeholder
+  initializeChartPlaceholder();
+}
+
+// Run initialization when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeApp);
+
 function addEntry() {
   const symbol = document.getElementById("symbol").value;
   const date = document.getElementById("dateInput").value;
@@ -50,7 +87,21 @@ function updateList() {
   list.innerHTML = "";
   
   if (stockData.length === 0) {
-    list.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">No data entries yet. Add some data or generate sample data to get started!</div>';
+    list.innerHTML = `
+      <div style="
+        text-align: center; 
+        padding: 30px 20px; 
+        color: #666; 
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        margin: 10px;
+        border: 2px dashed #ddd;
+      ">
+        📊 No data entries yet<br>
+        <small style="color: #999; font-size: 14px;">Add some data or generate sample data to get started!</small>
+      </div>
+    `;
     return;
   }
   
@@ -170,7 +221,59 @@ function renderPredictions(predictions) {
   });
 }
 
+function initializeChartPlaceholder() {
+  const chartContainer = document.querySelector('.chart-container');
+  const canvas = document.getElementById('chart');
+  
+  if (chartContainer && canvas) {
+    // Hide the canvas initially
+    canvas.style.display = 'none';
+    
+    // Create placeholder
+    const placeholder = document.createElement('div');
+    placeholder.id = 'chart-placeholder';
+    placeholder.innerHTML = `
+      <div style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 350px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px dashed #ddd;
+        border-radius: 8px;
+        color: #666;
+        font-size: 16px;
+        text-align: center;
+      ">
+        <div style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;">📈</div>
+        <div style="font-weight: bold; margin-bottom: 10px;">Stock Price Chart</div>
+        <div style="font-size: 14px; color: #999;">Train the AI model to see historical data and predictions visualized here</div>
+      </div>
+    `;
+    
+    chartContainer.appendChild(placeholder);
+  }
+}
+
+// Remove chart placeholder when showing actual chart
+function removeChartPlaceholder() {
+  const placeholder = document.getElementById('chart-placeholder');
+  const canvas = document.getElementById('chart');
+  
+  if (placeholder) {
+    placeholder.remove();
+  }
+  
+  if (canvas) {
+    canvas.style.display = 'block';
+  }
+}
+
 function drawChart(history, prediction) {
+  // Remove placeholder and show canvas
+  removeChartPlaceholder();
+  
   const ctx = document.getElementById("chart").getContext("2d");
   
   // Show only last 30 days of historical data to avoid lengthy chart
