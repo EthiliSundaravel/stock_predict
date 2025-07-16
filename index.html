@@ -10,29 +10,34 @@
 </head>
 <body>
   <div class="container">
-    <h1>Stock Market Predictor (Brain.js)</h1>
+    <h1>📈 Stock Market Predictor</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 1.1em;">
+      AI-powered stock price prediction using Brain.js Neural Networks
+    </p>
 
     <div class="controls">
       <select id="symbol">
-        <option value="AMZN">Amazon (AMZN)</option>
-        <option value="GOOGL">Google (GOOGL)</option>
-        <option value="CRM">Salesforce (CRM)</option>
-        <option value="MSFT">Microsoft (MSFT)</option>
-        <option value="NVDA">Nvidia (NVDA)</option>
+        <option value="AMZN">📦 Amazon (AMZN)</option>
+        <option value="GOOGL">🔍 Google (GOOGL)</option>
+        <option value="CRM">☁️ Salesforce (CRM)</option>
+        <option value="MSFT">💻 Microsoft (MSFT)</option>
+        <option value="NVDA">🎮 Nvidia (NVDA)</option>
       </select>
       <input type="date" id="dateInput" />
-      <input type="number" id="priceInput" placeholder="Price ($)" />
-      <button onclick="addEntry()">Add</button>
-      <button onclick="generateSampleData()">Generate Sample</button>
+      <input type="number" id="priceInput" placeholder="Price ($)" step="0.01" />
+      <button onclick="addEntry()">➕ Add Entry</button>
+      <button onclick="generateSampleData()">🎲 Generate Sample</button>
     </div>
 
     <div id="dataList" class="data-list"></div>
 
-    <button onclick="trainAndPredict()" class="train-button">Train & Predict</button>
+    <button onclick="trainAndPredict()" class="train-button">🧠 Train & Predict</button>
 
     <div id="predictionResults" class="prediction-results"></div>
 
-    <canvas id="chart" height="400"></canvas>
+    <div class="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
   </div>
 
   <script src="script.js"></script>

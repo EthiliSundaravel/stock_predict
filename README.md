@@ -139,15 +139,8 @@ stock_predict/
 ```
 
 ## 🚀 Deployment
-
-### GitHub Pages
-1. Push your code to GitHub
-2. Go to repository Settings → Pages
-3. Select source branch (usually `main` or `master`)
-4. Your app will be available at `https://username.github.io/stock_predict`
-
-### Netlify
-1. Drag and drop the project folder to Netlify
+### Vercel
+1. Add git repo as new project
 2. Or connect your GitHub repository
 3. No build process required - it's a static site
 
@@ -182,33 +175,3 @@ php -S localhost:8000
 - Duplicate date prevention
 - Automatic sorting by date
 - Visual data list with delete buttons
-
-## 🔮 Future Enhancements
-
-- [ ] Add more stock symbols
-- [ ] Implement different neural network architectures
-- [ ] Add technical indicators (RSI, MACD, etc.)
-- [ ] Export predictions to CSV
-- [ ] Add prediction accuracy metrics
-- [ ] Implement data persistence (localStorage)
-- [ ] Add more chart types and indicators
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-If you have any questions or issues, please open an issue on GitHub or contact the maintainer.
-
----
-
-**Note**: This is a demonstration project for educational purposes. Stock market predictions are inherently uncertain and this tool should not be used for actual investment decisions." 
