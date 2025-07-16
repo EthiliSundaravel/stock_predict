@@ -1,6 +1,10 @@
-"# Stock Market Predictor - Vanilla JavaScript
+"# Stock Market Prediction using Brain.js   - Vanilla JavaScript
 
 A simple yet powerful stock market prediction application built with vanilla JavaScript and Brain.js neural networks. This application demonstrates machine learning in the browser using a feedforward neural network to predict stock prices.
+
+**Group Members**: Ethili Sundaravel - 500236470
+                   Ishaben Bhatt - 500237391
+                   Rani James - 500237541
 
 ## 🚀 Features
 
